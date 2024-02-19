@@ -28,6 +28,7 @@ export default function App() {
   const [textSize, setTextSize] = useState({
     size: "24",
   });
+  const [pencilSize, setPencilSize] = useState(8);
   const pressedKeys = usePressedKeys();
   const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
   const [startPanMousePosition, setStartPanMousePosition] = useState({
@@ -128,13 +129,16 @@ export default function App() {
           ...elementsCopy[id].points,
           { x: x2, y: y2 },
         ];
+        elementsCopy[id] = { ...elementsCopy[id], pencilSize: pencilSize };
         break;
       case "text": {
         const textWidth = document
           .getElementById("canvas")
           .getContext("2d")
           .measureText(options.text).width;
+
         const textHeight = parseInt(textSize.size);
+
         elementsCopy[id] = {
           ...createElement(id, x1, y1, x1 + textWidth, y1 + textHeight, type),
           text: options.text,
@@ -348,6 +352,16 @@ export default function App() {
             <PiPencilLineThin />
           </label>
           <p>P</p>
+          {tool === "pencil" && (
+            <input
+              className="w-16 max-md:absolute max-md:w-10"
+              type="range"
+              min={1}
+              max={60}
+              value={pencilSize}
+              onChange={(e) => setPencilSize(parseInt(e.target.value))}
+            />
+          )}
         </div>
         <div className="tool">
           <input

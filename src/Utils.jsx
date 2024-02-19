@@ -139,8 +139,8 @@ export function drawElement(roughCanvas, ctx, element) {
     case "pencil": {
       const myStroke = getSvgPathFromStroke(
         getStroke(element.points, {
-          size: 10,
-          smoothing: 1,
+          size: element.pencilSize ? element.pencilSize : 8,
+          smoothing: 0.7,
         })
       );
       ctx.fill(new Path2D(myStroke));
@@ -194,5 +194,3 @@ function getSvgPathFromStroke(points, closed = true) {
 export function adjustmentRequired(type) {
   ["line", "rectangle"].includes(type);
 }
-
-
