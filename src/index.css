@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  @apply w-screen h-screen overflow-hidden;
+}
+
+.toolbar {
+  width: 80px;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  @apply fixed top-0 left-0 z-50 bg-slate-700;
+}
+
+@media screen and (max-width: 768px) {
+  .toolbar {
+    width: 100vw;
+    height: 140px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    grid-auto-flow: column;
+    gap: 6px;
+  }
+}
+
+.tool input[type="radio"] {
+  @apply hidden;
+}
+
+.tool {
+  @apply flex flex-col items-center justify-center gap-1 w-full max-md:w-12;
+}
+
+.tool label {
+  @apply p-3 cursor-pointer bg-slate-300 rounded-lg duration-100;
+}
+.tool label:hover {
+  @apply bg-slate-400 text-white;
+}
+.tool input[type="radio"]:checked + label {
+  @apply bg-slate-500 text-white outline-dashed outline-slate-400;
+}
+
+.tool button[type="button"] {
+  @apply bg-slate-300 rounded-lg p-3 duration-100;
+}
+
+label > *,
+button[type="button"] > * {
+  @apply h-6 w-6 max-md:h-4 max-md:w-4;
+}
+
+.tool button:hover {
+  @apply bg-slate-400;
+}
+.tool button:active {
+  @apply bg-slate-500;
+}
+
+.tool p {
+  @apply text-center uppercase text-slate-300 font-semibold text-xs;
+}
+
+@media screen and (max-width: 768px) {
+  .tool p {
+    font-size: 10px;
+  }
+}
+
+textarea {
+  @apply fixed p-0 m-0 border-0 outline-none  bg-transparent resize-none w-fit h-fit;
+}
+
+@media screen and (max-width: 768px) {
+  #altscroll {
+    font-size: 8px;
+  }
+}
