@@ -1,9 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# Drawing-App
+Ce projet permet à l'utilisateur de dessiner sur son écran en main libre, dessiner des formes comme des rectangles, des lignes, ajouter du texte en variant la taille du texte. Il permet également de déplacer la toile dans tous les sens et de zoomer. Les raccourcis sont sous les icônes des fonctions.
